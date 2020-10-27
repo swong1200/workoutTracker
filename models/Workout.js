@@ -1,8 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Workout = new Schema({
-    string: {
+const WorkoutSchema = new Schema({
+    day: {
 
+    },
+    exercises: [
+        {
+        type: 
+        name:
+        duration:
+        distance:
+        weight:
+        reps:
+        sets:
     }
+]
 });
