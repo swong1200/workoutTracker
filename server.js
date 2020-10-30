@@ -5,10 +5,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 const routes = require("./controllers/workoutController");
 
-
 // Port
 const PORT = process.env.PORT || 3000;
-
 
 const app = express();
 

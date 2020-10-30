@@ -15,14 +15,13 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-//   // addExercise()
-// try this with a regular update like the potato guy
+// addExercise()
 router.put("/api/workouts/:id", ({body, params}, res) => {
     db.Workout.findOneAndUpdate({_id: params.id}, {$push: {exercises: body}}, {new: true})
     .then(dbWorkout => {
       console.log(dbWorkout)
         res.json(dbWorkout);
-        
+
     })
     .catch(err => {
         res.json(err);
@@ -40,7 +39,7 @@ router.post("/api/workouts", ({body}, res) => {
       });
   });
   
-//   // getWorkoutsInRange()
+// getWorkoutsInRange()
 router.get("/api/workouts/range", (req, res) => {
     db.Workout.find({})
     .then(dbWorkout => {
