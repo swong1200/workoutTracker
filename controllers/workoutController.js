@@ -1,46 +1,55 @@
+// Importing
 const express = require("express");
+const db = require("../models");
 
 const router = express.Router();
 
-// Import the model to use its database functions
-const db = require("../models");
-
-router.get("/", function(req, res) {
-
+// getLastWorkout()
+router.get("/api/workouts", (req, res) => {
+    db.Workout.find({})
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.json(err);
+    });
 });
 
-// // getLastWorkout()
-// app.get("/api/workouts", (req, res) => {
-//     db.Workout.find({})
-//       .then(dbWorkout => {
-//         res.json(dbWorkout);
-//       })
-//       .catch(err => {
-//         res.json(err);
-//       });
-//   });
-  
 //   // addExercise()
-//   app.put("/api/workouts/:id", (req, res) => {
-//     db.Workout.
-//   });
-  
-//   // createWorkout()
-//   app.post("/api/workouts", ({ body }, res) => {
-//     db.Workout.create(body)
-//       // .then(({ _id }) => db.Workout.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
-//       // .then(dbWorkout => {
-//       //   res.json(dbWorkout);
-//       // })
-//       // .catch(err => {
-//       //   res.json(err);
-//       // });
-//   });
+// try this with a regular update like the potato guy
+router.put("/api/workouts/:id", ({body, params}, res) => {
+    db.Workout.findOneAndUpdate({_id: params.id}, {$push: {exercises: body}}, {new: true})
+    .then(dbWorkout => {
+      console.log(dbWorkout)
+        res.json(dbWorkout);
+        
+    })
+    .catch(err => {
+        res.json(err);
+    });
+  });
+
+// createWorkout()
+router.post("/api/workouts", ({body}, res) => {
+    db.Workout.create(body)
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
   
 //   // getWorkoutsInRange()
-//   app.get("/api/workouts/range", (req, res) => {
-//     db.Workout.
-//   });
+router.get("/api/workouts/range", (req, res) => {
+    db.Workout.find({})
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.json(err);
+    });
+  });
 
 // Export routes for server.js to use
 module.exports = router;
