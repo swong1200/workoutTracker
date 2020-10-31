@@ -51,7 +51,7 @@ None
 ## Questions
 If you have any questions or issues, please forward them to me at swong31@gmail.com.
 ## Deployed Site
-[www.github.com/swong1200](https://github.com/swong1200)
+[www.infinite-refuge-16529.herokuapp.com](https://infinite-refuge-16529.herokuapp.com)
 ## Screenshots
 ![](images/(3).png)
 ![](images/(4).png)
